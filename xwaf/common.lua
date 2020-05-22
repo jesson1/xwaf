@@ -120,8 +120,8 @@ end
 function _M.formatRowHttpStrV1( self, str, result, i, match )
 	match[i] = ngx.re.match(str, "([^&]*)&{0,1}([\\s\\S]*)", "isjo")
 	if match[i][1] ~= "" and match[i][2] ~= "" then
-		self:formatRowHttpStr(match[i][1] , result, i+1, match)
-		self:formatRowHttpStr(match[i][2], result, i+1, match)
+		self:formatRowHttpStrV1(match[i][1] , result, i+1, match)
+		self:formatRowHttpStrV1(match[i][2], result, i+1, match)
 	else
 		if match[i][1] ~= "" then
 			self:format(match[i][1], result)
